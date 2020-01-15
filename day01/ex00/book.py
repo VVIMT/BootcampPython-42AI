@@ -2,7 +2,7 @@ import sys
 import datetime
 from recipe import Recipe
 
-class Book(Recipe):
+class Book:
     name = ''
     last_update=datetime.datetime.now()
     creation_date=datetime.datetime.now()

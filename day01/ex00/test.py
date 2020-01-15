@@ -23,5 +23,5 @@ print(to_print)
 
 print(book.get_recipe_by_name('snarf')._name)
 
-book.get_recipes_by_types('starter')
+book.get_recipes_by_types('lunch')
 
