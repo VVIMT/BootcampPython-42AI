@@ -23,8 +23,10 @@ class Book(Recipe):
         pass
 
     def add_recipe(self, recipe):
-        self.recipes_list[recipe._recipe_type].append({recipe._name : recipe})
+        self.recipes_list[recipe._recipe_type][recipe._name] = recipe
         print(self.recipes_list)
         self.last_update = datetime.datetime.now()
         print(self.last_update)
+        print("\n")
+        print(self.recipes_list)
         pass
