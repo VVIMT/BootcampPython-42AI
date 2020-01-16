@@ -185,5 +185,5 @@ class Vector:
     def __str__(self):
         return ', '.join(['{key}={value}'.format(key=key, value=self.__dict__.get(key)) for key in self.__dict__])
 
-        pass
     def __repr__(self):
+        pass
