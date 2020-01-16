@@ -24,10 +24,7 @@ class Vector:
         except TypeError:
             print("Error: bad parameter type")
 
-    def __add__(self, other):
-
-        print("__add__")
-        
+    def __add__(self, other):        
         x = []
 
         if isinstance(other, list):
@@ -47,13 +44,9 @@ class Vector:
         return x
 
     def __radd__(self, other):
-
-        print("__radd__")
-
         x = []
 
         if isinstance(other, list):
-            print("!1")
             if self.size == len(other):
                 for i in range(0, self.size):
                     x.append(self.values[i] + other[i])
@@ -65,10 +58,7 @@ class Vector:
             pass
         return x
 
-    def __sub__(self, other):
-
-        print("__sub__")
-        
+    def __sub__(self, other):        
         x = []
 
         if isinstance(other, list):
@@ -87,13 +77,9 @@ class Vector:
         return x
 
     def __rsub__(self, other):
-
-        print("__rsub__")
-
         x = []
 
         if isinstance(other, list):
-            print("!1")
             if self.size == len(other):
                 for i in range(0, self.size):
                     x.append(- self.values[i] + other[i])
