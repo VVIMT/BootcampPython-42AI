@@ -23,24 +23,32 @@ class Vector:
             print("Error: bad parameter type")
 
     def __add__(self, other):
-        return other + self.values
+        x = []
+        if isinstance(other, Vector):
+            if self.size == other.size:
+                for i in range(0, self.size):
+                    x.append(self.values[i] + other.values[i])
+        elif isinstance(other, int) or isinstance(other, float):
+            if isinstance(self.values, int) or isinstance(self.values, float):
+                x = self.values + other
+        return x
 
     def __radd__(self, other):
-        x = []
-        if self.size == other.size:
-            for i in range(0, self.size):
-                x.append(self.values[i] + other.values[i])
-        return x
+        pass
 
     def __sub__(self, other):
-        return other - self.values
+        x = []
+        if isinstance(other, Vector):
+            if self.size == other.size:
+                for i in range(0, self.size):
+                    x.append(self.values[i] - other.values[i])
+        elif isinstance(other, int) or isinstance(other, float):
+            if isinstance(self.values, int) or isinstance(self.values, float):
+                x = self.values - other
+        return x
 
     def __rsub__(self, other):
-        x = []
-        if self.size == other.size:
-            for i in range(0, self.size):
-                x.append(self.values[i] - other.values[i])
-        return x
+        pass
 
     def __truediv__(self, other):
         return other / self.values
