@@ -31,13 +31,19 @@ class Vector:
             if self.size == len(other):
                 for i in range(0, self.size):
                     x.append(self.values[i] + other[i])
+            else:
+                print("Both operands must have the same dimensions.\n")
         elif isinstance(other, type(self)):
             if self.size == other.size:
                 for i in range(0, self.size):
                     x.append(self.values[i] + other.values[i])
+            else:
+                print("Both operands must have the same dimensions.\n")
         elif isinstance(other, int):
             if self.size == 1:
                 x.append(self.values[0] + other)
+            else:
+                print("Both operands must have the same dimensions.\n")
         else:
             pass
         return x
@@ -49,9 +55,13 @@ class Vector:
             if self.size == len(other):
                 for i in range(0, self.size):
                     x.append(self.values[i] + other[i])
+            else:
+                print("Both operands must have the same dimensions.\n")
         elif isinstance(other, int):
             if self.size == 1:
                 x.append(self.values[0] + other)
+            else:
+                print("Both operands must have the same dimensions.\n")
         else:
             pass
         return x
@@ -63,13 +73,19 @@ class Vector:
             if self.size == len(other):
                 for i in range(0, self.size):
                     x.append(self.values[i] - other[i])
+            else:
+                print("Both operands must have the same dimensions.\n")
         elif isinstance(other, type(self)):
             if self.size == other.size:
                 for i in range(0, self.size):
                     x.append(self.values[i] - other.values[i])
+            else:
+                print("Both operands must have the same dimensions.\n")
         elif isinstance(other, int):
             if self.size == 1:
                 x.append(self.values[0] - other)
+            else:
+                print("Both operands must have the same dimensions.\n")
         else:
             pass
         return x
@@ -81,9 +97,13 @@ class Vector:
             if self.size == len(other):
                 for i in range(0, self.size):
                     x.append(- self.values[i] + other[i])
+            else:
+                print("Both operands must have the same dimensions.\n")
         elif isinstance(other, int):
             if self.size == 1:
                 x.append(- self.values[0] + other)
+            else:
+                print("Both operands must have the same dimensions.\n")
         else:
             pass
         return x
