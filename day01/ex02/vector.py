@@ -32,18 +32,21 @@ class Vector:
                 x.append(self.values[i] + other.values[i])
         return x
 
-    def __sub__(self):
-        pass
+    def __sub__(self, other):
+        return other - self.values
 
-    def __rsub__(self):
-        pass
+    def __rsub__(self, other):
+        x = []
+        if self.size == other.size:
+            for i in range(0, self.size):
+                x.append(self.values[i] - other.values[i])
+        return x
 
-    def __truediv__(self):
-        pass
-    
-    def __rtruediv__(self):
-        pass
+    def __truediv__(self, other):
+        return other / self.values
 
+    def __rtruediv__(self, other):
+        pass
     def __mul__(self):
         pass
 
