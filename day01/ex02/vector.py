@@ -37,8 +37,7 @@ class Vector:
                     x.append(self.values[i] + other.values[i])
         elif isinstance(other, int):
             if self.size == 1:
-                x.append(other)
-                x[0] = x[0] + self.values[0]
+                x.append(self.values[0] + other)
         else:
             pass
         return x
@@ -50,7 +49,6 @@ class Vector:
             if self.size == len(other):
                 for i in range(0, self.size):
                     x.append(self.values[i] + other[i])
-
         elif isinstance(other, int):
             if self.size == 1:
                 x.append(self.values[0] + other)
@@ -83,25 +81,106 @@ class Vector:
             if self.size == len(other):
                 for i in range(0, self.size):
                     x.append(- self.values[i] + other[i])
-
         elif isinstance(other, int):
             if self.size == 1:
-                x.append(other)
-                x[0] = x[0] - self.values[0]
+                x.append(- self.values[0] + other)
         else:
             pass
         return x
 
     def __truediv__(self, other):
-        return other / self.values
+        x = []
+
+        if isinstance(other, list):
+            if self.size == len(other):
+                for i in range(0, self.size):
+                    try:
+                        if other[i] != 0:
+                            x.append(self.values[i] / other[i])
+                        else:
+                            raise ZeroDivisionError
+                    except ZeroDivisionError:
+                        print("ZeroDivisionError")
+        elif isinstance(other, type(self)):
+            if self.size == other.size:
+                for i in range(0, self.size):
+                    try:
+                        if other.values[i] != 0:
+                            x.append(self.values[i] / other.values[i])
+                        else:
+                            raise ZeroDivisionError
+                    except ZeroDivisionError:
+                        print("ZeroDivisionError")
+        elif isinstance(other, int):
+            if self.size == 1:
+                try:
+                    if other != 0:
+                        x.append(self.values[0] / other)
+                    else:
+                        raise ZeroDivisionError
+                except ZeroDivisionError:
+                    print("ZeroDivisionError")
+        else:
+            pass
+        return x
 
     def __rtruediv__(self, other):
-        pass
-    def __mul__(self):
-        pass
+        x = []
 
-    def __rmul__(self):
-        pass
+        if isinstance(other, list):
+            if self.size == len(other):
+                for i in range(0, self.size):
+                    try:
+                        if other[i] != 0:
+                            x.append(self.values[i] / other[i])
+                        else:
+                            raise ZeroDivisionError
+                    except ZeroDivisionError:
+                        print("ZeroDivisionError")
+        elif isinstance(other, int):
+            if self.size == 1:
+                try:
+                    if other != 0:
+                        x.append(self.values[0] / other)
+                    else:
+                        raise ZeroDivisionError
+                except ZeroDivisionError:
+                    print("ZeroDivisionError")
+        else:
+            pass
+        return x
+
+    def __mul__(self, other):
+        x = []
+
+        if isinstance(other, list):
+            if self.size == len(other):
+                for i in range(0, self.size):
+                    x.append(self.values[i] * other[i])
+        elif isinstance(other, type(self)):
+            if self.size == other.size:
+                for i in range(0, self.size):
+                    x.append(self.values[i] * other.values[i])
+        elif isinstance(other, int):
+            if self.size == 1:
+                x.append(self.values[0] * other)
+        else:
+            pass
+        return x
+
+    def __rmul__(self, other):
+        x = []
+
+        if isinstance(other, list):
+            if self.size == len(other):
+                for i in range(0, self.size):
+                    x.append(self.values[i] * other[i])
+        elif isinstance(other, int):
+            if self.size == 1:
+                x.append(self.values[0] * other)
+        else:
+            pass
+        return x
 
     def __str__(self):
         pass
