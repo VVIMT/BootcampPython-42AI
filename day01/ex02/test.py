@@ -64,3 +64,7 @@ print("\nv5 * v6: " + str(v5 * v6))
 print("\nv3 * v5: " + str(v3 * v5))
 print("\nv5 * v3: " + str(v5 * v3))
 print("\n")
+
+print("__str__")
+print(v1)
+print(v2)

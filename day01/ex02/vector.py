@@ -39,7 +39,7 @@ class Vector:
                     x.append(self.values[i] + other.values[i])
             else:
                 print("Both operands must have the same dimensions.\n")
-        elif isinstance(other, int):
+        elif isinstance(other, int) or isinstance(other, float):
             if self.size == 1:
                 x.append(self.values[0] + other)
             else:
@@ -57,7 +57,7 @@ class Vector:
                     x.append(self.values[i] + other[i])
             else:
                 print("Both operands must have the same dimensions.\n")
-        elif isinstance(other, int):
+        elif isinstance(other, int) or isinstance(other, float):
             if self.size == 1:
                 x.append(self.values[0] + other)
             else:
@@ -81,7 +81,7 @@ class Vector:
                     x.append(self.values[i] - other.values[i])
             else:
                 print("Both operands must have the same dimensions.\n")
-        elif isinstance(other, int):
+        elif isinstance(other, int) or isinstance(other, float):
             if self.size == 1:
                 x.append(self.values[0] - other)
             else:
@@ -99,7 +99,7 @@ class Vector:
                     x.append(- self.values[i] + other[i])
             else:
                 print("Both operands must have the same dimensions.\n")
-        elif isinstance(other, int):
+        elif isinstance(other, int) or isinstance(other, float):
             if self.size == 1:
                 x.append(- self.values[0] + other)
             else:
@@ -111,27 +111,7 @@ class Vector:
     def __truediv__(self, other):
         x = []
 
-        if isinstance(other, list):
-            if self.size == len(other):
-                for i in range(0, self.size):
-                    try:
-                        if other[i] != 0:
-                            x.append(self.values[i] / other[i])
-                        else:
-                            raise ZeroDivisionError
-                    except ZeroDivisionError:
-                        print("ZeroDivisionError")
-        elif isinstance(other, type(self)):
-            if self.size == other.size:
-                for i in range(0, self.size):
-                    try:
-                        if other.values[i] != 0:
-                            x.append(self.values[i] / other.values[i])
-                        else:
-                            raise ZeroDivisionError
-                    except ZeroDivisionError:
-                        print("ZeroDivisionError")
-        elif isinstance(other, int):
+        if isinstance(other, int) or isinstance(other, float):
             if self.size == 1:
                 try:
                     if other != 0:
@@ -141,7 +121,7 @@ class Vector:
                 except ZeroDivisionError:
                     print("ZeroDivisionError")
         else:
-            pass
+            print("TypeError: unsupported operand type(s)")
         return x
 
     def __rtruediv__(self, other):
@@ -157,7 +137,7 @@ class Vector:
                             raise ZeroDivisionError
                     except ZeroDivisionError:
                         print("ZeroDivisionError")
-        elif isinstance(other, int):
+        elif isinstance(other, int) or isinstance(other, float):
             if self.size == 1:
                 try:
                     if other != 0:
@@ -181,7 +161,7 @@ class Vector:
             if self.size == other.size:
                 for i in range(0, self.size):
                     x.append(self.values[i] * other.values[i])
-        elif isinstance(other, int):
+        elif isinstance(other, int) or isinstance(other, float):
             if self.size == 1:
                 x.append(self.values[0] * other)
         else:
@@ -195,7 +175,7 @@ class Vector:
             if self.size == len(other):
                 for i in range(0, self.size):
                     x.append(self.values[i] * other[i])
-        elif isinstance(other, int):
+        elif isinstance(other, int) or isinstance(other, float):
             if self.size == 1:
                 x.append(self.values[0] * other)
         else:
@@ -203,7 +183,7 @@ class Vector:
         return x
 
     def __str__(self):
-        pass
+        return ', '.join(['{key}={value}'.format(key=key, value=self.__dict__.get(key)) for key in self.__dict__])
 
-    def __repr__(self):
         pass
+    def __repr__(self):
