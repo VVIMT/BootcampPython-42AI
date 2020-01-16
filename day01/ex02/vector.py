@@ -24,28 +24,29 @@ class Vector:
 
     def __add__(self, other):
         x = []
-        if isinstance(other, Vector):
+        if isinstance(other, list):
+            if self.size == len(other):
+                for i in range(0, self.size):
+                    x.append(self.values[i] + other[i])
+        elif isinstance(other, type(self)):
             if self.size == other.size:
                 for i in range(0, self.size):
                     x.append(self.values[i] + other.values[i])
-        elif isinstance(other, int) or isinstance(other, float):
-            if isinstance(self.values, int) or isinstance(self.values, float):
-                x = self.values + other
+        elif isinstance(other, int):
+            if self.size == 1:
+                x.append(other)
+                x[0] = x[0] + self.values[0]
+        else:
+            pass
         return x
 
     def __radd__(self, other):
+
+        
         pass
 
     def __sub__(self, other):
-        x = []
-        if isinstance(other, Vector):
-            if self.size == other.size:
-                for i in range(0, self.size):
-                    x.append(self.values[i] - other.values[i])
-        elif isinstance(other, int) or isinstance(other, float):
-            if isinstance(self.values, int) or isinstance(self.values, float):
-                x = self.values - other
-        return x
+        pass
 
     def __rsub__(self, other):
         pass
