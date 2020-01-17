@@ -1,12 +1,7 @@
 import sys
 
 class Recipe:
-#    name = ''
-#    cooking_lvl = 0
-#    cooking_time = 0
-#    ingredients = []
-#    description = ''
-#    recipe_type = ''
+    
     _t = ('starter', 'lunch', 'dessert')
 
     def __init__(self, name='', cooking_lvl=0, cooking_time=0, \
