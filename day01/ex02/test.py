@@ -8,6 +8,7 @@ v5 = Vector(1)
 v6 = [8]
 v7 = [19]
 v8 = Vector([35])
+v9 = Vector([5.0, -3.1, 2.4, 4])
 
 print("__add__ and __radd__")
 print("\nv1 + v2: " + str(v1 + v2))
@@ -63,6 +64,8 @@ print("\nv6 * v5: " + str(v6 * v5))
 print("\nv5 * v6: " + str(v5 * v6))
 print("\nv3 * v5: " + str(v3 * v5))
 print("\nv5 * v3: " + str(v5 * v3))
+print("\nv9 * v1: " + str(v9 * v1))
+print("\nv1 * v9: " + str(v1 * v9))
 print("\n")
 
 print("__str__")
