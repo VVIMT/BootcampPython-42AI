@@ -1,5 +1,4 @@
 import math
-import numpy
 
 class Vector:
     def __init__(self, param = None):
@@ -15,9 +14,11 @@ class Vector:
                         raise TypeError
                 self.values = param
             elif type(param) == int or type(param) == float:
-                self.values = list(numpy.arange(float(0), float(param), 1))
+                for i in range(param):
+                    self.values.append(float(i))
             elif type(param) == tuple:
-                self.values = list(numpy.arange(float(param[0]), float(param[1]), 1))
+                for i in range(param[0], param[1]):
+                    self.values.append(float(i))
             else:
                 raise TypeError
             self.size = len(self.values)
