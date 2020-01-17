@@ -17,7 +17,7 @@ class Evaluator:
             elif isinstance(i[1], str) and isinstance(i[0], float):
                 sum = sum + (len(i[1]) * i[0])
             else:
-                raise TypeError
+                return (-1)
         return sum
 
     def enumerate_evaluate(param1, param2):
@@ -33,5 +33,5 @@ class Evaluator:
             elif isinstance(key2, str) and isinstance(key1, float):
                 sum = sum + (key1 * len(key2))
             else:
-                raise TypeError
+                return (-1)
         return sum
