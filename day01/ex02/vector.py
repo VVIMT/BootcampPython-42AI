@@ -151,33 +151,48 @@ class Vector:
         return x
 
     def __mul__(self, other):
-        x = []
+        x = 0
 
         if isinstance(other, list):
             if self.size == len(other):
                 for i in range(0, self.size):
-                    x.append(self.values[i] * other[i])
+                    x = x + (self.values[i] * other[i])
+            else:
+                print("Both operands must have the same length.\n")
         elif isinstance(other, type(self)):
             if self.size == other.size:
                 for i in range(0, self.size):
-                    x.append(self.values[i] * other.values[i])
+                    x = x + (self.values[i] * other.values[i])
+            else:
+                print("Both operands must have the same length.\n")
         elif isinstance(other, int) or isinstance(other, float):
-            if self.size == 1:
-                x.append(self.values[0] * other)
+            v = []
+            for i in range(0, self.size):
+                v.append(self.values[i] * other)
+            return v
         else:
             pass
         return x
 
     def __rmul__(self, other):
-        x = []
+        x = 0
 
         if isinstance(other, list):
             if self.size == len(other):
                 for i in range(0, self.size):
-                    x.append(self.values[i] * other[i])
+                    x = x + (self.values[i] * other[i])
+            else:
+                print("Both operands must have the same length.\n")
         elif isinstance(other, int) or isinstance(other, float):
             if self.size == 1:
-                x.append(self.values[0] * other)
+                x = x + (self.values[0] * other)
+            elif self.size > 1:
+                v = []
+                for i in range(0, self.size):
+                    v.append(self.values[i] * other)
+                return v
+            else:
+                pass
         else:
             pass
         return x
