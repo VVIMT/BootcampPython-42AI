@@ -15,7 +15,11 @@ class Bank(object):
     def __init__(self):
         self.account = []
     def add(self, account):
-        self.account.append(account)
+        if isinstance(account, Account):
+            self.account.append(account)
+        else:
+            print("Warning")
+            return False
     def transfer(self, origin, dest, amount):
         if float(amount) < 0:
             return False
