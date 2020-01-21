@@ -27,12 +27,6 @@ class Bank(object):
             if (origin == elem_src.id or origin == elem_src.name) and (amount <= elem_src.value):
                 for elem_dst in self.account:
                     if (dest == elem_dst.id or dest == elem_dst.name):
-
-                        print("\n")
-                        print(elem_src.id)
-                        print(elem_dst.id)
-                        print("\n")
-
                         elem_src.transfer(-1 * amount)
                         elem_dst.transfer(amount)
                         return True
