@@ -11,7 +11,7 @@ class Account(object):
         self.value += amount
 
 class Bank(object):
-    """The bank"""
+    #"""The bank"""
     def __init__(self):
         self.account = []
     def add(self, account):
@@ -33,17 +33,39 @@ class Bank(object):
         return False
 
 
-        """
-            @origin: int(id) or str(name) of the first account
-            @dest:    int(id) or str(name) of the destination account
-            @amount: float(amount) amount to transfer
-            @return         True if success, False if an error occured
-"""
+        #"""
+        #    @origin: int(id) or str(name) of the first account
+        #    @dest:    int(id) or str(name) of the destination account
+        #    @amount: float(amount) amount to transfer
+        #    @return         True if success, False if an error occured
+        #"""
+    
+    def check_account(self, account):
+        if len(dir(account)) % 2 == 0:
+            print("Even number of attributes\n")
+            return False
+        if not hasattr(account, 'name'):
+            print("No attribute 'name'\n")
+            return False
+        if not hasattr(account, 'id'):
+            print("No attribute 'id'\n")
+            return False
+        if not hasattr(account, 'value'):
+            print("No attribute 'value'\n")
+            return False
+        i = 0
+        while i < len(dir(account)):
+            if (dir(account)[i][:1]) == 'b':
+                print("Attribute starting with 'b'\n")
+                return False
+            i += 1
 
     def fix_account(self, account):
-        """
-            fix the corrupted account
-            @account: int(id) or str(name) of the account
-            @return         True if success, False if an error occured
-"""
         pass
+
+        #"""
+        #fix the corrupted account
+        #@account: int(id) or str(name) of the account
+        #@return         True if success, False if an error occured
+        #"""
+
