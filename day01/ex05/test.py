@@ -10,15 +10,18 @@ three = Account("three")
 src.value = 500.0
 dst.value = 20.0
 
+src.zip = []
+dst.zip = []
+
+src.addr = []
+dst.addr = []
+
 bank.add(one)
 bank.add(src)
 bank.add(two)
 bank.add(dst)
 bank.add(three)
 
-print(hasattr(src, 'value'))
-print(hasattr(dst, 'value'))
-print("\n\n")
 
 print("vv: ")
 print(src.value)
@@ -78,8 +81,3 @@ print(len(dir(src)))
 print("\n")
 print(len(dir(dst)))
 print("\n")
-
-print("fix src: ")
-bank.fix_account(src)
-print("fix dst: ")
-bank.fix_account(dst)

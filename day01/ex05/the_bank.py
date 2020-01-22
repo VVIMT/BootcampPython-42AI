@@ -41,20 +41,20 @@ class Bank(object):
         #"""
     
     def check_account(self, account):
+        if not hasattr(account, 'id'):
+            print("No attribute 'id'\n")
+            return 1
         if not hasattr(account, 'name'):
             print("No attribute 'name'\n")
             return 2
-        if not hasattr(account, 'id'):
-            print("No attribute 'id'\n")
-            return 3
         if not hasattr(account, 'value'):
             print("No attribute 'value'\n")
-            return 4
+            return 3
         i = 0
         while i < len(dir(account)):
             if (dir(account)[i][:1]) == 'b':
                 print("Attribute starting with 'b'\n")
-                return 5
+                return 4
             i += 1
         i = 0
         while i < len(dir(account)):
@@ -64,7 +64,7 @@ class Bank(object):
             i += 1
             if i == len(dir(account)):
                 print("No attribute starting with 'zip'\n")
-                return 6
+                return 5
         i = 0
         while i < len(dir(account)):
             print(dir(account)[i][:4])
@@ -73,16 +73,16 @@ class Bank(object):
             i += 1
             if i == len(dir(account)):
                 print("No attribute starting with 'addr'\n")
-                return 7
+                return 6
         if len(dir(account)) % 2 == 0:
             print("Even number of attributes\n")
-            return 1
+            return 7
         return 0
 
     def fix_account(self, account):
         try:
             check = self.check_account(account)
-            if check == 3:
+            if check == 1:
                 account.id = Account.ID_COUNT + 1
             if check == 2:
                 account.name = "_" + str(account.id) + "_"
