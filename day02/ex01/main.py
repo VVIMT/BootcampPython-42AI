@@ -1,6 +1,12 @@
-def what_are_the_vars(...):
-    """Your code"""
-    pass
+def what_are_the_vars(*args, **kwargs):
+    obj = ObjectC()
+    for key, value in kwargs.items():
+        setattr(obj, key, value)
+    i = 0
+    for arg in args:
+        setattr(obj, "var_" + str(i), arg)
+        i += 1
+    return obj
 
 class ObjectC(object):
     def __init__(self):
