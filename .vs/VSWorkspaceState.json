@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
+    "",
     "\\day01",
-    "\\day01\\ex02"
+    "\\day01\\ex02",
+    "\\day01\\ex05"
   ],
+  "SelectedNode": "\\day01\\ex05\\test.py",
   "PreviewInSolutionExplorer": false
 }

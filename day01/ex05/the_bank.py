@@ -41,9 +41,6 @@ class Bank(object):
         #"""
     
     def check_account(self, account):
-        if len(dir(account)) % 2 == 0:
-            print("Even number of attributes\n")
-            return 1
         if not hasattr(account, 'name'):
             print("No attribute 'name'\n")
             return 2
@@ -77,23 +74,25 @@ class Bank(object):
             if i == len(dir(account)):
                 print("No attribute starting with 'addr'\n")
                 return 7
+        if len(dir(account)) % 2 == 0:
+            print("Even number of attributes\n")
+            return 1
         return 0
 
     def fix_account(self, account):
-        check = self.check_account(account)
-        if check == 3:
-            account.id = Account.ID_COUNT + 1
-        if check == 2:
-            account.name = "_" + str(account.id) + "_"
-            while account.name in self.account:
-                account.name += str(account.id)
-        if check == 4:
-            account.value = 0
-        if check == 6:
-            print("Add attribute starting with 'zip'\n")
-        if check == 7:
-            print("Add attribute starting with 'addr'\n")
+        try:
+            check = self.check_account(account)
+            if check == 3:
+                account.id = Account.ID_COUNT + 1
+            if check == 2:
+                account.name = "_" + str(account.id) + "_"
+                while account.name in self.account:
+                    account.name += str(account.id)
+        except Exception:
+            print("An error occured")
+            return False
 
+        return True
         #"""
         #fix the corrupted account
         #@account: int(id) or str(name) of the account
