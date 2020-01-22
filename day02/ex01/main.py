@@ -1,9 +1,13 @@
 def what_are_the_vars(*args, **kwargs):
     obj = ObjectC()
     for key, value in kwargs.items():
+        if hasattr(obj, key):
+            return None
         setattr(obj, key, value)
     i = 0
     for arg in args:
+        if hasattr(obj, "var_" + str(i)):
+            return None
         setattr(obj, "var_" + str(i), arg)
         i += 1
     return obj
