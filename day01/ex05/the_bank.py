@@ -4,7 +4,7 @@ class Account(object):
         self.id = self.ID_COUNT
         self.name = name
         self.__dict__.update(kwargs)
-        if hasattr(self, 'value'):
+        if not hasattr(self, 'value'):
             self.value = 0
         Account.ID_COUNT += 1
     def transfer(self, amount):
@@ -25,10 +25,33 @@ class Bank(object):
             return False
         for elem_src in self.account:
             if (origin == elem_src.id or origin == elem_src.name) and (amount <= elem_src.value):
+
+                print("src: ")
+                print(elem_src.id)
+                print("origin: ")
+                print(origin)
+                print("value: ")
+                print(elem_src.value)
+                print("amount: ")
+                print(amount)
+                print("\n")
+
                 for elem_dst in self.account:
+
+                    print(elem_dst)
+                    print("\n")
+
                     if (dest == elem_dst.id or dest == elem_dst.name):
                         elem_src.transfer(-1 * amount)
                         elem_dst.transfer(amount)
+
+                        print("src value: \n")
+                        print(elem_src.value)
+                        print("\n")
+                        print("dst value: \n")
+                        print(elem_dst.value)
+                        print("\n")
+
                         return True
         return False
 
