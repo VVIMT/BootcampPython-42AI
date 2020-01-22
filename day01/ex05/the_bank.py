@@ -18,7 +18,7 @@ class Bank(object):
         if isinstance(account, Account):
             self.account.append(account)
         else:
-            print("Warning")
+            print("Not an Account object")
             return False
     def transfer(self, origin, dest, amount):
         if float(amount) < 0:
@@ -43,25 +43,56 @@ class Bank(object):
     def check_account(self, account):
         if len(dir(account)) % 2 == 0:
             print("Even number of attributes\n")
-            return False
+            return 1
         if not hasattr(account, 'name'):
             print("No attribute 'name'\n")
-            return False
+            return 2
         if not hasattr(account, 'id'):
             print("No attribute 'id'\n")
-            return False
+            return 3
         if not hasattr(account, 'value'):
             print("No attribute 'value'\n")
-            return False
+            return 4
         i = 0
         while i < len(dir(account)):
             if (dir(account)[i][:1]) == 'b':
                 print("Attribute starting with 'b'\n")
-                return False
+                return 5
             i += 1
+        i = 0
+        while i < len(dir(account)):
+            print(dir(account)[i][:3])
+            if (dir(account)[i][:3]) == 'zip':
+                break
+            i += 1
+            if i == len(dir(account)):
+                print("No attribute starting with 'zip'\n")
+                return 6
+        i = 0
+        while i < len(dir(account)):
+            print(dir(account)[i][:4])
+            if (dir(account)[i][:4]) == 'addr':
+                break
+            i += 1
+            if i == len(dir(account)):
+                print("No attribute starting with 'addr'\n")
+                return 7
+        return 0
 
     def fix_account(self, account):
-        pass
+        check = self.check_account(account)
+        if check == 3:
+            account.id = Account.ID_COUNT + 1
+        if check == 2:
+            account.name = "_" + str(account.id) + "_"
+            while account.name in self.account:
+                account.name += str(account.id)
+        if check == 4:
+            account.value = 0
+        if check == 6:
+            print("Add attribute starting with 'zip'\n")
+        if check == 7:
+            print("Add attribute starting with 'addr'\n")
 
         #"""
         #fix the corrupted account

@@ -2,7 +2,7 @@ from the_bank import Account, Bank
 
 bank = Bank()
 one = Account("one")
-src = Account("vv", Name="Snarf")
+src = Account("vv")
 two = Account("two")
 dst = Account("ww")
 three = Account("three")
@@ -38,27 +38,15 @@ print("\n")
 
 print("__dict__ from src: \n")
 print(dir(src))
-i = 0
-while i < len(dir(src)):
-    print(dir(src)[i][:3])
-    i += 1
-
 print("\n")
 print("__dict__ from dst: \n")
 print(dir(dst))
-i = 0
-while i < len(dir(src)):
-    print(dir(src)[i][:3])
-    i += 1
-
 print("\n")
 print(len(dir(src)))
 print("\n")
 print(len(dir(dst)))
 print("\n")
-print("src: ")
-bank.check_account(src)
-print("dst: ")
-bank.check_account(dst)
-
-
+print("fix src: ")
+bank.fix_account(src)
+print("fix dst: ")
+bank.fix_account(dst)
