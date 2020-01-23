@@ -1,5 +1,17 @@
-(vinvimo):Running start_machine
-(vinvimo):Running boil_water
-(vinvimo):Running make_coffee
-(vinvimo):Running add_water
-(vinvimo):Running start_machine(vinvimo):Running boil_water(vinvimo):Running make_coffee(vinvimo):Running add_water
+(vinvimo):Running start_machine       [ exec-time = 0.000 ms ]
+(vinvimo):Running boil_water       [ exec-time = 0.000 ms ]
+(vinvimo):Running make_coffee       [ exec-time = 2.015 s ]
+(vinvimo):Running start_machine       [ exec-time = 0.000 ms ]
+(vinvimo):Running boil_water       [ exec-time = 0.000 ms ]
+(vinvimo):Running make_coffee       [ exec-time = 2.008 s ]
+(vinvimo):Running start_machine       [ exec-time = 0.000 ms ]
+(vinvimo):Running boil_water       [ exec-time = 0.000 ms ]
+(vinvimo):Running make_coffee       [ exec-time = 2.010 s ]
+(vinvimo):Running start_machine       [ exec-time = 0.998 ms ]
+(vinvimo):Running boil_water       [ exec-time = 0.000 ms ]
+(vinvimo):Running make_coffee       [ exec-time = 2.007 s ]
+(vinvimo):Running start_machine       [ exec-time = 1.002 ms ]
+(vinvimo):Running make_coffee       [ exec-time = 0.001 s ]
+(vinvimo):Running start_machine       [ exec-time = 0.999 ms ]
+(vinvimo):Running make_coffee       [ exec-time = 0.001 s ]
+(vinvimo):Running add_water       [ exec-time = 5000.102 ms ]

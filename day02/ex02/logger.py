@@ -1,16 +1,25 @@
 import time
 from random import randint
 
-def log(func, **kwargs):
-    start = time.time()
-
-    f = open("C:\\Users\\Vincent\\source\\repos\\Bootcamp-42AI\\day02\\ex02\\machine.log", "a")
-    f.write("(vinvimo):Running " + func.__name__ + "   [ exec-time = " + str(time.time() - start)) + " ] \n")
-    f.close()
-    return func
+def log(func):
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        f = open("C:\\Users\\Vincent\\source\\repos\\Bootcamp-42AI\\day02\\ex02\\machine.log", "a")
+        f.write("(vinvimo):Running " + func.__name__)
+        f.write("       [ exec-time = ")
+        result = func(*args, **kwargs)
+        if func.__name__ == "make_coffee":
+            f.write(str(format(round((time.time() - start), 3), '.3f')))
+            f.write(" s ]\n")
+        else:
+            f.write(str(format(round((time.time() - start) * 1000, 3), '.3f')))
+            f.write(" ms ]\n")
+        f.close()
+        return result
+    return wrapper
 
 class CoffeeMachine():
-    water_level = 100
+    water_level = 100 
 
     @log
     def start_machine(self):
